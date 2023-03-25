@@ -4,12 +4,12 @@ import { useState } from "react";
 export default function RestGetPage(){
     const [title, setTitle] = useState('');
     //비동기
-    function onClickAsync(){
+    const onClickAsync = () => {
         const result = axios.get('https://koreanjson.com/posts/1');
         console.log('비동기', result);
     }
     //동기
-    async function onClickSync(){
+    const onClickSync = async() => {
         const result = await axios.get('https://koreanjson.com/posts/1');
         console.log('동기', result.data.title);
         setTitle(result.data.title);
