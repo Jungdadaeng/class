@@ -20,16 +20,21 @@ export default function GraphqlMutationInputPage(){
     const router = useRouter();
 
     const onClickSubmit = async () => {
-        const result = await createBoard({
-            variables:{ // variables가 $ 역할을 해줌
-                writer: writer, 
-                title: title,
-                contents: contents
-            }
-        });
-        console.log(result);
-        alert(result.data.createBoard.message);
-        router.push(`/04-10-dynamic-routed-board-mutation/${result.data.createBoard.number}`) //템플릿 리터럴
+        try{
+            const result = await createBoard({
+                variables:{ // variables가 $ 역할을 해줌
+                    writer: writer, 
+                    title: title,
+                    contents: contents
+                }
+            });
+            console.log(result);
+            alert(result.data.createBoard.message);
+            router.push(`/04-10-dynamic-routed-board-mutation/${result.data.createBoard.number}`) //템플릿 리터럴
+        }catch(error){
+            //try에 있는 내용을 시도하다가 실패하면, 아랫줄 모두 무시하고 catch가 실행됨.
+            console.log(error.message);
+        }
     }
 
     const onChangeWriter = (event) => {
