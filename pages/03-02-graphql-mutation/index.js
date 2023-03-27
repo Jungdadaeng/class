@@ -11,10 +11,10 @@ const CREATE_BOARD = gql`
 `
 
 export default function GraphqlMutationPage(){
-    const [나의함수] = useMutation(CREATE_BOARD);
+    const [createBoard] = useMutation(CREATE_BOARD);
 
     const onClickSubmit = async () => {
-        const result = await 나의함수();
+        const result = await createBoard();
         console.log(result);
     }
 
