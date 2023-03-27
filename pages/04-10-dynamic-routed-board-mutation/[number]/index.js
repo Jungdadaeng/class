@@ -18,7 +18,7 @@ export default function DynamicRoutedBoardQueryPage(){
 
     const {data} = useQuery(FETCH_BOARD,{
         variables: {
-            number: Number(router.query.qqq)
+            number: Number(router.query.number)
         }
     });
 
