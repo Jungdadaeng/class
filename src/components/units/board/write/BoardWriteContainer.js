@@ -1,17 +1,7 @@
-import { useMutation,gql } from "@apollo/client"
+import { useMutation } from "@apollo/client"
 import { useState } from "react";
 import BoardWriteUI from "./BoardWritePresenter";
-
-
-const CREATE_BOARD = gql`
-    mutation createBoard($writer: String, $title: String, $contents: String) { # 변수의 타입 적는 곳
-        createBoard(writer:$writer, title:$title, contents:$contents){         # 실제 우리가 전달하라 변수 적는 곳
-        _id,
-        number,
-        message
-        }
-    }
-`
+import { CREATE_BOARD } from "./BoardWrite.queries";
 
 
 export default function BoardWrite(){
