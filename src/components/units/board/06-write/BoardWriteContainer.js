@@ -26,13 +26,19 @@ export default function BoardWrite(){
     
     const onChangeWriter = (event) => {
         setWriter(event.target.value);
+        if(event.target.value && title && contents ){
+            setMycolor(true);
+        }
     }
     const onChangeTitle = (event) => {
         setTitle(event.target.value);
+        if(writer && event.target.value && contents ){
+            setMycolor(true);
+        }
     }
     const onChangeContents = (event) => {
         setContents(event.target.value);
-        if(writer !== "" && title !== "" && contents !== "" ){
+        if(writer && title && event.target.value ){
             setMycolor(true);
         }
     }
