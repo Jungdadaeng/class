@@ -1,22 +1,12 @@
-import { useMutation,useQuery } from "@apollo/client"
+import { useMutation } from "@apollo/client"
 import { ChangeEvent, useState } from "react";
 import BoardWriteUI from "./BoardWritePresenter";
-import { CREATE_BOARD, UPDATE_BOARD, FETCH_BOARD } from "./BoardWrite.queries";
+import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
 import { useRouter } from "next/router";
-
-interface IProps{
-    isEdit: boolean,
-    data?: {
-        number: number,
-        writer: string,
-        title: string,
-        contents: string
-    }
-}
+import { IBoardWriteProps, IMyvariablese } from "./BoardWrite.types";
 
 
-
-export default function BoardWrite(props: IProps){
+export default function BoardWrite(props: IBoardWriteProps){
     const [mycolor, setMycolor] = useState(false);
     const [writer, setWriter] = useState('');
     const [title, setTitle] = useState('');
@@ -39,12 +29,7 @@ export default function BoardWrite(props: IProps){
     }
 
     const onClickUpdate = async () => {
-        interface IMyvariablese{
-            number: number
-            writer?: string
-            title?: string
-            contents?: string
-        }
+     
         const myvariables:IMyvariablese = {number:Number(router.query.number)};
         if(writer) myvariables.writer = writer;
         if(title) myvariables.title = title;

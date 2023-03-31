@@ -1,17 +1,7 @@
-import { ChangeEvent } from "react"
 import * as S from "./BoardWrite.styles"
+import { IBoardWriteUIProps } from "./BoardWrite.types";
 
-interface IProps{
-    onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void
-    onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void
-    onChangeContents:(event: ChangeEvent<HTMLInputElement>) => void
-    onClickUpdate: () => void
-    onClickSubmit: () => void
-    mycolor: boolean
-    isEdit: boolean
-    data: any
-}
-export default function BoardWriteUI(props:IProps){
+export default function BoardWriteUI(props:IBoardWriteUIProps){
     return(
         <>
             <h1>{props.isEdit?"수정":"등록"}</h1>
